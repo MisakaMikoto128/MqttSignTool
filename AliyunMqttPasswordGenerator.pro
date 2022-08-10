@@ -8,6 +8,7 @@ CONFIG -= app_bundle
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        aliyunmqttpasswordgenerator.cpp \
         hash-library/crc32.cpp \
         hash-library/keccak.cpp \
         hash-library/md5.cpp \
@@ -22,6 +23,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    aliyunmqttpasswordgenerator.h \
     hash-library/crc32.h \
     hash-library/hash.h \
     hash-library/hmac.h \
