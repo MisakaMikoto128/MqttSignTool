@@ -7,11 +7,6 @@
 #include "hash-library/hmac.h"
 #include <iostream>
 
-QString productKey = "a1w78T9VVmM";
-QString deviceName = "dev1";
-QString deviceSecret = "1041d8898a6cdc5a851074c1543c98db";
-QString SN = "SN";
-
 QString aliyun_matt_get_signature_content(const QString &productKey,const QString &deviceName,const QString &clientId,const QString &timestamp)
 {
     QString content = \
@@ -39,7 +34,7 @@ QString aliyun_matt_get_hostNmae(const QString &productKey,const QString &host)
     return productKey%QString(".")%host;
 }
 
-QString aliyun_matt_get_userNmae(const QString &,const QString &deviceName)
+QString aliyun_matt_get_userNmae(const QString &productKey,const QString &deviceName)
 {
     return deviceName%QChar('&')%productKey;
 }
@@ -57,10 +52,12 @@ QString aliyun_matt_get_password(const QString &productKey,const QString &device
 //{
 //    QCoreApplication a(argc, argv);
 
-//    QString host = "iot-as-mqtt.cn-shanghai.aliyuncs.com";
-//    QString productKey = "a1w78T9VVmM";
-//    QString deviceName = "dev1";
-//    QString deviceSecret = "1041d8898a6cdc5a851074c1543c98db";
+
+//    std::string host = "iot-as-mqtt.cn-shanghai.aliyuncs.com";
+//    std::string productKey = "a1w78T9VVmM";
+//    std::string deviceName = "dev1";
+//    std::string deviceSecret = "1041d8898a6cdc5a851074c1543c98db";
+//    std::string SN = "SN";
 
 
 //    QString timestamp = QString::number(QDateTime::currentMSecsSinceEpoch()/1000);

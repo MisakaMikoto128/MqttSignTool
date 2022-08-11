@@ -90,7 +90,6 @@ AliyunMqttPasswordGenerator::AliyunMqttPasswordGenerator(const std::string&host,
 void AliyunMqttPasswordGenerator::updateTimestamp()
 {
     timestamp = std::to_string(getCurrentSecTimestamp());
-    std::cout << "timestamp" <<getCurrentSecTimestamp()<<std::endl;
 }
 
 std::string AliyunMqttPasswordGenerator::clientId() const
