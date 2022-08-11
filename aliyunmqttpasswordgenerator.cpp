@@ -1,8 +1,8 @@
 #include "aliyunmqttpasswordgenerator.h"
-
+#include <ctime>
+#include <random>
 #if defined(_WIN32) || defined(_WIN64)
 //define something for Windows (64-bit only)
-#include <time.h>
 static uint64_t getCurrentSecTimestamp(){
     time_t t;
     time(&t);
@@ -53,6 +53,31 @@ bool AliyunMqttPasswordGenerator::signMethodIsSupported(const std::string &signM
         }
     }
     return ret;
+}
+
+std::string AliyunMqttPasswordGenerator::generateRandomString(int len)
+{
+    std::string str;
+    str.resize(len);
+    int i = 0;
+    std::default_random_engine r;
+    r.seed(time(0));
+    //分为三个情况，小写字母、大写字母、数字
+    for(std::string::iterator it = str.begin();it!=str.end();it++){
+        i = r()%3;
+        switch(i){
+            case 0:
+            *it = r()%26+'a';
+            break;
+            case 1:
+            *it = r()%26+'A';
+            break;
+            case 2:
+            *it = r()%10+'0';
+            break;
+        }
+    }
+    return str;
 }
 
 std::string AliyunMqttPasswordGenerator::getSignContent()

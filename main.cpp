@@ -94,5 +94,6 @@ int main(int argc, char *argv[])
     std::cout << "userName:" << gen.userName() << std::endl;
     std::cout << "password:" << gen.password() << std::endl;
     std::cout << "SupportSignMethod:" << gen.getSupportSignMethod()[0] << std::endl;
+    std::cout << "randon str:" << gen.generateRandomString(10)<<std::endl;
     return a.exec();
 }

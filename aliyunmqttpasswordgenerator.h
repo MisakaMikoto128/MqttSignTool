@@ -36,6 +36,7 @@ public:
     std::string password() const;
     static const std::vector<std::string> &getSupportSignMethod();
     bool signMethodIsSupported(const std::string& signMethod);
+    static std::string generateRandomString(int len);
 };
 
 #endif // ALIYUNMQTTPASSWORDGENERATOR_H
